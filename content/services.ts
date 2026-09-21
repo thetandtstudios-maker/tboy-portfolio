@@ -1,100 +1,114 @@
-import { services, security } from "@/content/services";
-import { site } from "@/content/site";
+// ============================================================
+// Services, process and tech stack. Edit the words here.
+// ============================================================
 
-export default function Services() {
-  return (
-    <section id="services" className="border-t border-line/10 bg-surface/40">
-      <div className="mx-auto max-w-6xl px-5 py-20">
-        <h2 className="max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-5xl">
-          What I can build for you
-        </h2>
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
-          From a first idea to a working product, or a fix for something you
-          already have.
-        </p>
+export const services = [
+  {
+    title: "Android apps",
+    text: "Native Android apps built in Kotlin, from the first screen to a working product.",
+  },
+  {
+    title: "Web apps and websites",
+    text: "Fast, mobile-first web apps and websites that work well on any phone.",
+  },
+  {
+    title: "Backend, Firebase and APIs",
+    text: "Accounts, databases and the server side that makes an app work, including Firebase and API connections.",
+  },
+  {
+    title: "Payment integration",
+    text: "Paystack payments that are checked on the server before anything unlocks.",
+  },
+  {
+    title: "Fixing and improving existing apps",
+    text: "Bug fixes, new features and cleaner screens for an app you already have.",
+  },
+  {
+    title: "Custom marketplace apps",
+    text: "Listing and pay-to-connect apps like Zana, with an admin dashboard you can run yourself.",
+  },
+  {
+    title: "Technical consulting",
+    text: "Talk through your idea and get clear direction on how to build it.",
+  },
+];
 
-        <ul className="mt-10 divide-y divide-line/10 border-y border-line/10">
-          {services.map((s) => (
-            <li
-              key={s.title}
-              className="grid gap-2 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10"
-            >
-              <h3 className="font-display text-xl font-bold">{s.title}</h3>
-              <p className="leading-relaxed text-muted">{s.text}</p>
-            </li>
-          ))}
-        </ul>
+export const security = {
+  title: "Android Reverse Engineering & Security Assessment",
+  intro:
+    "I analyze Android applications at the APK, DEX and Smali levels to understand how they work, identify weaknesses, investigate security controls, and help developers strengthen vulnerable implementations.",
+  assess: [
+    "Android apps, at the APK, DEX and Smali level",
+    "How the app handles login, permissions, protections and sensitive features",
+    "A clear write-up of what I find, with recommended fixes",
+  ],
+  outside: ["Server-side and backend systems", "Apps built with Flutter"],
+  exampleTitle: "Example: TheftGuard subscription security",
+  exampleText:
+    "I analyzed my own app, TheftGuard, at the DEX and Smali level to test how well its subscription system holds up.",
+  cta: "Request an Android Security Assessment",
+};
 
-        {site.available && (
-          <a href="#contact" className="btn btn-primary mt-8">
-            Discuss Your Project
-          </a>
-        )}
+export const steps = [
+  {
+    title: "Listen",
+    text: "You explain your idea in your own words.",
+  },
+  {
+    title: "Understand and strengthen",
+    text: "I make sure I fully understand it, then help you strengthen it. That includes suggesting useful things you didn't think of.",
+  },
+  {
+    title: "Design first",
+    text: "I start with what you'll see. If you already have a design in mind, I follow it. If not, I research UI inspiration and shape a look that fits your idea.",
+  },
+  {
+    title: "Set up",
+    text: "I prepare the backend and the tools your app needs.",
+  },
+  {
+    title: "Build",
+    text: "Now the coding begins.",
+  },
+  {
+    title: "Test, then test again",
+    text: "I test it myself first. Then dedicated testers go through it thoroughly, and I fix everything they find.",
+  },
+  {
+    title: "Your review",
+    text: "When the app looks right, it comes to you to check.",
+  },
+  {
+    title: "Handover",
+    text: "Once you're happy, we move to payment. After payment, I hand over your project. Support afterwards, and even promotion, depend on what we agree at the start.",
+  },
+];
 
-        {/* ---------- Security service ---------- */}
-        <div className="mt-16 rounded-3xl border border-accent/40 bg-surface p-6 sm:p-10">
-          <h3 className="max-w-2xl font-display text-2xl font-bold tracking-tight sm:text-4xl">
-            {security.title}
-          </h3>
-          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-            {security.intro}
-          </p>
+export const workStyle =
+  "I don't spend a long time on what can be done quickly, and I don't rush what needs time to be done properly.";
 
-          <div className="mt-8 grid gap-8 md:grid-cols-[1.4fr_1fr]">
-            <div>
-              <h4 className="font-display text-base font-bold">What I assess</h4>
-              <ul className="mt-3 space-y-2.5">
-                {security.assess.map((a) => (
-                  <li
-                    key={a}
-                    className="flex gap-2.5 text-sm leading-relaxed text-muted"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                    />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-display text-base font-bold">
-                Outside my scope
-              </h4>
-              <ul className="mt-3 space-y-2.5">
-                {security.outside.map((o) => (
-                  <li
-                    key={o}
-                    className="flex gap-2.5 text-sm leading-relaxed text-muted"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-line/30"
-                    />
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 rounded-2xl border border-line/10 bg-surface2/60 p-5">
-            <h4 className="font-display text-base font-bold">
-              {security.exampleTitle}
-            </h4>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {security.exampleText}
-            </p>
-          </div>
-
-          {site.available && (
-            <a href="#contact" className="btn btn-primary mt-8 w-full sm:w-auto">
-              {security.cta}
-            </a>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
+export const stack = {
+  used: [
+    "Kotlin",
+    "Android (XML screens)",
+    "Firebase",
+    "Cloudinary",
+    "Paystack",
+    "Vercel",
+    "GitHub",
+    "HTML, CSS and JavaScript",
+    "Next.js and React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Tavily",
+    "SerpAPI",
+  ],
+  available: [
+    "Java",
+    "Node.js",
+    "Supabase",
+    "Flutterwave payments",
+    "Push notifications (FCM)",
+    "Python APIs",
+  ],
+};
