@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
   const { telegram, email, youtube } = site.links;
@@ -12,21 +13,26 @@ export default function Contact() {
               {"Have an idea? Let's build it."}
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-              Message me on Telegram or send an email. Tell me what you want
-              to build, and we take it from there.
+              Send me the details below, or message me directly on Telegram
+              or email.
             </p>
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
+                className="btn btn-ghost"
               >
                 Message me on Telegram
               </a>
               <a href={`mailto:${email}`} className="btn btn-ghost">
                 Send an email
               </a>
+            </div>
+
+            <div className="mt-10 max-w-2xl">
+              <ContactForm />
             </div>
           </>
         ) : (
