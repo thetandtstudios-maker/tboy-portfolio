@@ -112,7 +112,7 @@ export const projects: Project[] = [
       "Hosted on Vercel, deployed from GitHub",
       "Web results through Tavily and image results through SerpAPI, with both keys kept private on the server",
     ],
-    liveUrl: "trace-three-wheat.vercel.app",
+    liveUrl: "https://trace-three-wheat.vercel.app",
     screenshots: [],
   },
 ];
