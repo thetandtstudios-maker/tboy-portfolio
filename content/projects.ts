@@ -90,7 +90,12 @@ export const projects: Project[] = [
       "Phone theft is common where I live, and I wanted a real answer to it. TheftGuard is recent, and I haven't launched it fully yet, because a proper launch needs a budget I'm not putting in for now. I'm introducing it to my audience first and seeing how it goes.",
       "It's up for sale. If you can move fast and have the resources to take it to market, you can buy it outright, and I'm open to other arrangements too. If it stays available, I may put my own focus behind launching it myself. I believe it can be very effective in my part of the world.",
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/theftguard/1.webp",
+        alt: "TheftGuard home screen showing the system status, the arm button and emergency contact settings",
+      },
+    ],
   },
   {
     slug: "trace",
