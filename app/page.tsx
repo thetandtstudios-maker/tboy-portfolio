@@ -6,6 +6,9 @@ import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Stack from "@/components/Stack";
+import Testimonials from "@/components/Testimonials";
+import About from "@/components/About";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -21,6 +24,9 @@ export default function Home() {
         <Services />
         <Process />
         <Stack />
+        <Testimonials />
+        <About />
+        <Faq />
         <Contact />
       </main>
       <Footer />
