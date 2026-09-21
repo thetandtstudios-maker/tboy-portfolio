@@ -1,30 +1,58 @@
 import Image from "next/image";
-import { projects, type Project } from "@/content/projects";
+import { projects, type Project, type Shot } from "@/content/projects";
 import { site } from "@/content/site";
 
+/* One screenshot inside a phone frame that matches the site */
+function Phone({ s }: { s: Shot }) {
+  return (
+    <div className="relative rounded-[2.2rem] border border-line/15 bg-surface p-2 shadow-[0_30px_70px_-30px_rgb(139_92_246/0.55)]">
+      <div className="relative aspect-[720/1492] overflow-hidden rounded-[1.7rem] bg-bg">
+        <Image
+          src={s.src}
+          alt={s.alt}
+          fill
+          sizes="(min-width: 1024px) 260px, 230px"
+          className="object-cover"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute left-1/2 top-2 h-1.5 w-14 -translate-x-1/2 rounded-full bg-black/60"
+        />
+      </div>
+    </div>
+  );
+}
+
 function Visual({ p }: { p: Project }) {
-  if (p.screenshots.length > 0) {
+  // One screenshot: a single phone with a soft violet glow behind it.
+  if (p.screenshots.length === 1) {
     return (
-      <div className="-mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0">
+      <div className="relative mx-auto w-full max-w-[260px]">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-4 top-12 h-2/3 rounded-full bg-accent/25 blur-[70px]"
+        />
+        <div className="relative">
+          <Phone s={p.screenshots[0]} />
+        </div>
+      </div>
+    );
+  }
+
+  // Several screenshots: swipe sideways on a phone.
+  if (p.screenshots.length > 1) {
+    return (
+      <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0 lg:justify-center">
         {p.screenshots.map((s) => (
-          <div
-            key={s.src}
-            className="relative aspect-[9/19] w-44 shrink-0 snap-center overflow-hidden rounded-2xl border border-line/15 bg-surface"
-          >
-            <Image
-              src={s.src}
-              alt={s.alt}
-              fill
-              sizes="176px"
-              className="object-cover"
-            />
+          <div key={s.src} className="w-[230px] shrink-0 snap-center">
+            <Phone s={s} />
           </div>
         ))}
       </div>
     );
   }
 
-  // Shown until you add screenshots for this project.
+  // No screenshots yet: a quiet placeholder.
   return (
     <div className="mx-auto w-full max-w-[240px] rounded-[2rem] border border-line/15 bg-surface p-2">
       <div className="grid aspect-[9/17] place-items-center rounded-[1.5rem] bg-surface2">
