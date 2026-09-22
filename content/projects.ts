@@ -58,7 +58,12 @@ export const projects: Project[] = [
     ],
     shows:
       "Marketplaces, listing and directory apps, pay-to-connect or booking apps, and simple admin tools that non-technical owners can run themselves.",
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/zana/1.webp",
+        alt: "Zana property details screen showing features, landlord rating and the pay-to-unlock contact button",
+      },
+    ],
   },
   {
     slug: "theftguard",
@@ -118,6 +123,11 @@ export const projects: Project[] = [
       "Web results through Tavily and image results through SerpAPI, with both keys kept private on the server",
     ],
     liveUrl: "https://trace-three-wheat.vercel.app",
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/trace/1.webp",
+        alt: "Trace home screen with the image, name and username search tabs",
+      },
+    ],
   },
 ];
