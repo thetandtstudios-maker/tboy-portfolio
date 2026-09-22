@@ -43,6 +43,13 @@ export async function POST(req: Request) {
     );
   }
 
+  if (description.trim().length < 20) {
+    return NextResponse.json(
+      { error: "Please add a bit more detail about your project." },
+      { status: 400 }
+    );
+  }
+
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   if (!emailOk) {
     return NextResponse.json(
