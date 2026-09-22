@@ -157,9 +157,12 @@ export default function ContactForm() {
           id="description"
           name="description"
           required
+          minLength={20}
           rows={5}
+          placeholder="What do you want to build or fix? A few sentences is enough to get started."
           className="mt-1.5 w-full rounded-xl border border-line/15 bg-surface px-4 py-3 text-ink outline-none focus:border-accent"
         />
+        <p className="mt-1 text-xs text-muted">At least a short sentence or two.</p>
       </div>
 
       {error && (
