@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { site } from "@/content/site";
 
@@ -26,11 +25,13 @@ export const metadata: Metadata = {
     description: site.description,
     siteName: site.brand,
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: site.title }],
   },
   twitter: {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
+    images: ["/og-image.png"],
   },
 };
 
@@ -47,10 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="font-sans antialiased">
-        {children}
-        <Analytics />
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
